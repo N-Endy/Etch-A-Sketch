@@ -6,9 +6,8 @@ function createGrid(cols, rows) {
     container.style.setProperty('--grid-rows', rows);
     for (i = 0; i < (rows * cols); i++) {
         let cell = document.createElement("div");
-        cell.innerText = (i+1);
         container.appendChild(cell).className = "grid";
     };
 }
 
-createGrid(100, 10);
+createGrid(100, 100);

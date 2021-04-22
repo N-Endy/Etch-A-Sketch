@@ -27,11 +27,9 @@ header {
 .container {
     display: grid;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-gap: 1px;
-    height: 70vh;
+    height: 80vh;
+    width: 50vw;
     margin: 0 auto;
-    border: 1px solid red;
 }
 
 .grid {
