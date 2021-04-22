@@ -1,0 +1,39 @@
+:root {
+    --grid-rows: 10;
+    --grid-cols: 10;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: chartreuse;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-gap: 1px;
+    height: 70vh;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+
+.grid {
+    border: 1px solid black;
+}
