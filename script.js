@@ -24,6 +24,14 @@ button.addEventListener('click', () => {
     
 })
 
+button.addEventListener('mouseover', () => {
+    button.style.background = generateRandomColor();
+})
+
+button.addEventListener('mouseout', () => {
+    button.style.background = 'grey';
+})
+
 function createGrid(col, row) {
     // clear initial div created
     removeChildNodes();
@@ -36,7 +44,7 @@ function createGrid(col, row) {
         container.appendChild(cell).className = "grid";
     };
 
-    colorDivs();
+    changeBackgrounColor();
 }
 
 function removeChildNodes() {
@@ -44,21 +52,22 @@ function removeChildNodes() {
     divs.forEach(div => container.removeChild(div));
 }
 
-function randomColors(item) {
+function generateRandomColor() {
     let arrayOfHex = [1, 2, 3, 4, 5, 6, 'a', 'b', 'c', 'd', 'e', 'f'];
     let hexNumber = '#';
 
-    for (let i=0; i<7; i++) {
+    for (let i=0; i<6; i++) {
         hexNumber += arrayOfHex[Math.floor(arrayOfHex.length * Math.random())];
-        let divs = document.querySelectorAll('.grid');
-        divs.forEach(div => div.style.background = hexNumber)
     }
+    return hexNumber;
 }
 
-function colorDivs() {
+function changeBackgrounColor() {
     let divs = document.querySelectorAll('.grid');
     divs.forEach(div => {
-        div.addEventListener('mouseover', randomColors);
+        div.addEventListener('mouseover', () => {
+            div.style.backgroundColor = generateRandomColor();
+        });
     });
 }
-colorDivs()
+changeBackgrounColor();
