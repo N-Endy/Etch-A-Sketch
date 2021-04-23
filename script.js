@@ -35,10 +35,30 @@ function createGrid(col, row) {
         let cell = document.createElement("div");
         container.appendChild(cell).className = "grid";
     };
+
+    colorDivs();
 }
 
 function removeChildNodes() {
     let divs = document.querySelectorAll('.grid');
-    console.log(divs)
     divs.forEach(div => container.removeChild(div));
 }
+
+function randomColors(item) {
+    let arrayOfHex = [1, 2, 3, 4, 5, 6, 'a', 'b', 'c', 'd', 'e', 'f'];
+    let hexNumber = '#';
+
+    for (let i=0; i<7; i++) {
+        hexNumber += arrayOfHex[Math.floor(arrayOfHex.length * Math.random())];
+        let divs = document.querySelectorAll('.grid');
+        divs.forEach(div => div.style.background = hexNumber)
+    }
+}
+
+function colorDivs() {
+    let divs = document.querySelectorAll('.grid');
+    divs.forEach(div => {
+        div.addEventListener('mouseover', randomColors);
+    });
+}
+colorDivs()
